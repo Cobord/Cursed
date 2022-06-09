@@ -12,10 +12,13 @@ if __name__ == '__main__':
     # write print statements within this file
     # either within same indentation level or not
     p3 = subprocess.run(['rm','-rf','__pycache__'],shell=False,check=True)
-    with_spaces = False
+    with_spaces = True
     maybe_spaces = "    " if with_spaces else ""
     with open(__file__,'a') as f:
         [f.writelines(f"\n{maybe_spaces}print(\"{x}\")") for x in p2]
+    # immediately also execute the newly added print statements if they are not in the same indentation level
+    # if they are at the same level of indentation, then it is within this name == '__main__' condition
+    # so does not get run when the import in myf() happens
     take_effect_immediately = True
     if take_effect_immediately:
         myf()
