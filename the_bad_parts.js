@@ -14,7 +14,7 @@ console.log("false == \"\" evaluates to "+(false==""));
 console.log("false == \" \" evaluates to "+(false==" "));
 console.log("false == \"\\n\" evaluates to "+(false=="\n"));
 console.log("null == undefined evaluates to "+(null==undefined));
-console.log("\'b\'+\'a\'++\'a\'+\'a\' evaluates to "+'b'+'a'+ +'a' + 'a'.toLowerCase());
+console.log("\'b\'+\'a\'++\'a\'+\'a\' evaluates to "+('b'+'a'+ +'a' + 'a').toLowerCase());
 // http://www.jsfuck.com/
 console.log("++[[]][+[]]+[+[]] evaluates to "+(++[[]][+[]]+[+[]]));
 
