@@ -1,4 +1,6 @@
 // https://twitter.com/jckarter/status/1428093469755527168
+// here it happens to get the answer correct because the domain was restricted to i32
+// but points off for getting to that answer in the wrong way, ZERO CREDIT
 
 #include <stdbool.h>
 
@@ -7,7 +9,7 @@ bool collatz(unsigned int x) {
         if (x <= 1)
             return true;
 
-        if (x % 2)
+        if (x % 2 == 0)
             x >>= 1;
         else
             x = 3*x + 1;
@@ -45,14 +47,14 @@ define dso_local zeroext i1 @collatz(i32 %0) local_unnamed_addr #0 {
   %8 = lshr i32 %5, 1
   %9 = mul i32 %5, 3
   %10 = add i32 %9, 1
-  %11 = select i1 %7, i32 %10, i32 %8
+  %11 = select i1 %7, i32 %8, i32 %10
   %12 = icmp ult i32 %11, 2
   br i1 %12, label %3, label %4
 }
 
 ; Function Attrs: norecurse nounwind readnone uwtable
 define dso_local i32 @main(i32 %0, i8** nocapture readnone %1) local_unnamed_addr #0 {
-  ret i32 0                                                                                         <--------- HERE is the cursed
+  ret i32 0                                                                                     <-------- HERE is the cursed
 }
 
 attributes #0 = { norecurse nounwind readnone uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="none" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
