@@ -42,7 +42,7 @@ def _(arg : NotIterable):
 @fun_testing.register(Iterable)
 def _(arg : Iterable):
     print(f"{arg} is iterable including string")
-# if uncomment this, then because of this and both get an ambiguous dispatch RuntimeError
+# if uncomment this, then because of this and above both get an ambiguous dispatch RuntimeError
 # when trying to do fun_testing on [1,2,3] which satisfies both subclasshook's
 # @fun_testing.register(IterableNotString)
 # def _(arg : IterableNotString):
