@@ -49,6 +49,7 @@ def _(arg : Iterable):
 #    print(f"{arg} is iterable, but not a string")
 
 x = 4
+# false positive of hasattr(type(4),'__call__'), callable(4) does not give such a false positive
 fun_testing(x)
 x = [1,2,3]
 fun_testing(x)
