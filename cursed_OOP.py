@@ -1,6 +1,12 @@
-import types
+"""
+https://www.reddit.com/r/Python/comments/tceagd/better_oop_in_python_no_self_needed_anymore/
+"""
 
-# https://www.reddit.com/r/Python/comments/tceagd/better_oop_in_python_no_self_needed_anymore/
+# pylint:disable = missing-class-docstring,missing-function-docstring,invalid-name
+# pylint:disable = attribute-defined-outside-init,no-method-argument
+# mypy: ignore-errors
+
+import types
 
 class ClassNamespace(types.SimpleNamespace):
     def __init__(self,superclass,name):
@@ -11,7 +17,7 @@ class ClassNamespace(types.SimpleNamespace):
         items = (f"{k}={v!r}" for k, v in self.__dict__['fields'].items())
         itemstr = ",".join(items)
         return f"Instance of {self.class_name} with fields {itemstr}"
-    def myFields(self):
+    def my_fields(self):
         return self.__dict__['fields']
     def empty():
         empty_class = ClassNamespace(types.SimpleNamespace(),"Object")
@@ -20,7 +26,7 @@ class ClassNamespace(types.SimpleNamespace):
 
 def Counter(superclass=ClassNamespace.empty()):
     obj = ClassNamespace(superclass,"Counter")
-    fields = obj.myFields()
+    fields = obj.my_fields()
     fields.update({'value':0})
     def incrValue(qt=1):
         nonlocal fields
@@ -45,11 +51,11 @@ def Counter(superclass=ClassNamespace.empty()):
 
 def Flagger(superclass=ClassNamespace.empty()):
     obj = ClassNamespace(superclass,"Flagger")
-    fields = obj.myFields()
+    fields = obj.my_fields()
     fields.update({'flag':False})
     def toggle():
         nonlocal fields
-        fields['flag'] = not(fields['flag'])
+        fields['flag'] = not fields['flag']
     def getFlag():
         nonlocal fields
         return fields['flag']

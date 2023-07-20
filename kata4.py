@@ -1,6 +1,16 @@
+"""
+puts print statements at the bottom of the file either within or outside the __name__=='__main__'
+depends on whether you do python kata4.py
+or import kata4
+"""
+# pylint: skip-file
+# mypy: ignore-errors
 import subprocess
 
 def myf():
+    """
+    ouroboros import 
+    """
     import kata4
 
 if __name__ == '__main__':
