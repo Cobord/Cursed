@@ -31,7 +31,29 @@ myPromise
     .catch((x) => {console.log(x);console.log("Here");})
     .finally(() => {})
 
-//suppose reject("ErrorLabel1") wins, then will print out ErrorLabel1, have a resolved ErrorLabel2 which then gets printed out with a time value ~1000ms
-//  then have a rejected ErrorLabel3 which then gets caught and printed along with Here
-//suppose resolve(...) wins, then will print out foo with a time value ~2000ms, then have a rejected ErrorLabel3
-//  that gets caught (in the second then not the catch), printed out and then have a rejected ErrorLabel4, that gets caught (with the catch part) and printed along with Here
+/*
+suppose reject("ErrorLabel1") wins, then will print out ErrorLabel1, have a resolved ErrorLabel2
+which then gets printed out with a time value ~1000ms
+then have a rejected ErrorLabel3 which then gets caught and printed along with Here
+
+Console output like:
+ErrorLabel1
+ErrorLabel2
+1002.49129903627
+ErrorLabel3
+Here
+*/
+
+/*
+suppose resolve(...) wins, then will print out foo with a time value ~2000ms,
+then have a rejected ErrorLabel3
+that gets caught (in the second then not the catch), printed out and then have a rejected ErrorLabel4,
+that gets caught (with the catch part) and printed along with Here
+
+Console output like:
+foo
+2011.8804549872875
+ErrorLabel3
+ErrorLabel4
+Here
+*/

@@ -24,4 +24,4 @@ function f(){
         var y = 12
     return y
 }
-console.log(f())
+console.log("f() gives "+f()+". Undefined is it's own cursed beast even if it is normal.")
