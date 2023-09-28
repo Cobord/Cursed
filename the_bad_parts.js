@@ -20,8 +20,27 @@ console.log("++[[]][+[]]+[+[]] evaluates to "+(++[[]][+[]]+[+[]]));
 
 function f(){
     var x = 10
-    if(x == 4)
+    if(x == 4) {
         var y = 12
+        /*
+        without the brackets
+        not treated as a block
+        e.g. let y=12 would not be allowed
+        it's not a block with one line only
+        when there are no brackets
+        */
+    }
+    /*
+    when put x=4 instead, we return 12
+    but here, we get undefined
+    var y should be only within the scope of the if
+    but it is function scoped instead
+    like a var y at the top, but with no assignment
+    */
     return y
 }
 console.log("f() gives "+f()+". Undefined is it's own cursed beast even if it is normal.")
+
+console.log("typeof(NaN+'N') evaluates to typeof("+(NaN+'N')+") then "+typeof(NaN+'N'));
+console.log("typeof(NaN+'N'-'N') evaluates to typeof("+(NaN+'N'-'N')+") then "+typeof(NaN+'N'-'N'));
+console.log("typeof(NaN+'N'-'N'-'a') evaluates to typeof("+(NaN+'N'-'N'-'a')+") then "+typeof(NaN+'N'-'N'-'a'));
