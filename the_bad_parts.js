@@ -19,6 +19,17 @@
     console.log("\'b\'+\'a\'++\'a\'+\'a\' evaluates to " + ('b' + 'a' + +'a' + 'a').toLowerCase());
     // http://www.jsfuck.com/
     console.log("++[[]][+[]]+[+[]] evaluates to " + (++[[]][+[]] + [+[]]));
+    let b = 1
+    let a = "1"
+    console.log(b+++a + " and " + b + ++a)
+    console.log(a+" of type "+typeof(a))
+    console.log(b+" of type "+typeof(b))
+    console.log("The first is (b++)+a."+
+    "\n\tOk first b++ makes sense as giving 1 while mutating b and then addition has to be of strings because of a"+
+    "\n\tThe second is b + (++a). So the ++a makes a into a number and increments it returning 2 as a number."+
+    "\n\tBut the addition is still as strings and at the end it says a and b are both numbers"+
+    "\n\tThe second is not even consistent with the types it says the operands have")
+    
 }
 
 {
@@ -44,7 +55,9 @@
         */
         return y
     }
-    console.log("f() gives " + f() + ". Undefined is it's own cursed beast even if it is normal.")
+    console.log("When have the var x = 10 at the top get undefined. Undefined is it's own cursed beast even if it is normal.")
+    console.log("When have the var x = 4 at the top get 12 even though y should not be in scope")
+    console.log("f() gives " + f())
 }
 
 {
