@@ -79,9 +79,6 @@
         "\n\teven though it was on the later line and was just calling to string on it."+
         "\n\tIt put the 1 from the previous line together with the (1) to give 1(1) as a function call");
     }
-    
-    console.log("Scientific notation, but silently ignoring the e on the reparse without telling"+
-    "that was only a part of the input that parsed to the number when it should have been an error")
 
 }
 
@@ -93,6 +90,8 @@
         const as_number_again = Number.parseInt(as_number)
         console.log(as_string+"-> "+Number(as_string)+" -> "+as_number_again)
     }
+    console.log("Scientific notation, but silently ignoring the e on the reparse without telling"+
+    "that was only a part of the input that parsed to the number when it should have been an error")
 }
 
 {
