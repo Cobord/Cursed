@@ -69,4 +69,8 @@ def finally_overwrites_return() -> int:
         raise exc2
     finally:
         return 1
-print(f"finally_overwrites_return gives : {finally_overwrites_return()} instead of 0 or raising ValueError")
+print(
+f"""\
+finally_overwrites_return gives : \
+{finally_overwrites_return()} instead of 0 or raising ValueError\
+""")
