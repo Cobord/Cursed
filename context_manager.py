@@ -31,11 +31,13 @@ def check_logged_close():
     see the insertion of "about to close"
     in between return statement of function
     and continuing after the call
+    problems possible with the expression being returned having side effects
     """
     with logged_close(open("context_manager.py","r",encoding="utf-8"),
                     logger_pre=lambda : print("about to close")) as _my_fp:
         print("inside with")
         return print("returning")
+print("------------ CHECK LOGGED CLOSE -------------")
 check_logged_close()
 
 def control_flow_in_finally():
@@ -53,6 +55,7 @@ def control_flow_in_finally():
             raise ValueError(f"{i}") from exc
         finally:
             continue
+print("------------ CONTINUE IN FINALLY -------------")
 control_flow_in_finally()
 
 def finally_overwrites_return() -> int:
@@ -68,7 +71,8 @@ def finally_overwrites_return() -> int:
     except ValueError as exc2:
         raise exc2
     finally:
-        return 1
+        return 1 # pylint:disable=return-in-finally
+print("------------ FINALLY OVERWRITES RETURN -------------")
 print(
 f"""\
 finally_overwrites_return gives : \
